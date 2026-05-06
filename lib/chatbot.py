@@ -1,5 +1,6 @@
 ﻿# lib/chatbot.py
 from __future__ import annotations
+import os
 import streamlit as st
 from lib.utils import money
 
@@ -734,7 +735,7 @@ def _client():
     """Devuelve un cliente Groq o None si no hay key válida."""
     try:
         from groq import Groq  # noqa: PLC0415
-        key = st.secrets.get("GROQ_API_KEY", "")
+        key = st.secrets.get("GROQ_API_KEY", "") or os.getenv("GROQ_API_KEY", "")
         if not key or key == "gsk_...":
             return None
         return Groq(api_key=key)
