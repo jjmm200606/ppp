@@ -37,16 +37,17 @@ apply_theme()
 show_db_debug = (os.getenv("SHOW_DB_DEBUG", "") or "").strip().lower() in {"1", "true", "yes", "on"}
 if show_db_debug:
     debug = get_db_debug_snapshot()
-    st.error(
-        "DB DEBUG | "
-        f"DATABASE_URL={debug['DATABASE_URL']} | "
-        f"MYSQL_URL={debug['MYSQL_URL']} | "
-        f"MARIADB_URL={debug['MARIADB_URL']} | "
-        f"MYSQL_PUBLIC_URL={debug['MYSQL_PUBLIC_URL']} | "
-        f"MARIADB_HOST={debug['MARIADB_HOST']} | "
-        f"MYSQLHOST={debug['MYSQLHOST']}"
-    )
+    st.title("DB Debug")
+    st.write({
+        "DATABASE_URL": debug["DATABASE_URL"],
+        "MYSQL_URL": debug["MYSQL_URL"],
+        "MARIADB_URL": debug["MARIADB_URL"],
+        "MYSQL_PUBLIC_URL": debug["MYSQL_PUBLIC_URL"],
+        "MARIADB_HOST": debug["MARIADB_HOST"],
+        "MYSQLHOST": debug["MYSQLHOST"],
+    })
     st.code(debug["resolved_url"], language="text")
+    st.stop()
 
 # Observers globales (auditoría + limpieza de caché)
 add_global_observer(AuditObserver())
