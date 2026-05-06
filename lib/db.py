@@ -25,15 +25,53 @@ def _clean_env(value: str | None) -> str:
 def _build_db_url() -> str:
     direct_url = (
         _clean_env(os.getenv("DATABASE_URL"))
+        or _clean_env(os.getenv("POSTGRES_URL"))
+        or _clean_env(os.getenv("POSTGRESQL_URL"))
         or _clean_env(os.getenv("MYSQL_URL"))
         or _clean_env(os.getenv("MARIADB_URL"))
         or _clean_env(os.getenv("MYSQL_PUBLIC_URL"))
     )
     if direct_url:
         url = direct_url
+        if url.startswith("postgres://"):
+            url = "postgresql+psycopg2://" + url[len("postgres://"):]
+        elif url.startswith("postgresql://"):
+            url = "postgresql+psycopg2://" + url[len("postgresql://"):]
         if url.startswith("mysql://"):
             url = "mysql+pymysql://" + url[len("mysql://"):]
         return url
+
+    pg_host = (
+        _clean_env(os.getenv("POSTGRES_HOST"))
+        or _clean_env(os.getenv("POSTGRESQL_HOST"))
+        or _clean_env(os.getenv("PGHOST"))
+    )
+    if pg_host:
+        port = int(
+            _clean_env(os.getenv("POSTGRES_PORT"))
+            or _clean_env(os.getenv("POSTGRESQL_PORT"))
+            or _clean_env(os.getenv("PGPORT"))
+            or "5432"
+        )
+        user = (
+            _clean_env(os.getenv("POSTGRES_USER"))
+            or _clean_env(os.getenv("POSTGRESQL_USER"))
+            or _clean_env(os.getenv("PGUSER"))
+            or "postgres"
+        )
+        pwd = (
+            _clean_env(os.getenv("POSTGRES_PASSWORD"))
+            or _clean_env(os.getenv("POSTGRESQL_PASSWORD"))
+            or _clean_env(os.getenv("PGPASSWORD"))
+            or ""
+        )
+        db = (
+            _clean_env(os.getenv("POSTGRES_DB"))
+            or _clean_env(os.getenv("POSTGRESQL_DB"))
+            or _clean_env(os.getenv("PGDATABASE"))
+            or "perrospacho"
+        )
+        return f"postgresql+psycopg2://{user}:{pwd}@{pg_host}:{port}/{db}"
 
     host = _clean_env(os.getenv("MARIADB_HOST")) or _clean_env(os.getenv("MYSQLHOST")) or "127.0.0.1"
     port = int(_clean_env(os.getenv("MARIADB_PORT")) or _clean_env(os.getenv("MYSQLPORT")) or "3307")
@@ -55,13 +93,63 @@ def get_db_debug_snapshot() -> dict[str, str]:
 
     return {
         "DATABASE_URL": "set" if _clean_env(os.getenv("DATABASE_URL")) else "empty",
+        "POSTGRES_URL": "set" if _clean_env(os.getenv("POSTGRES_URL")) else "empty",
+        "POSTGRESQL_URL": "set" if _clean_env(os.getenv("POSTGRESQL_URL")) else "empty",
         "MYSQL_URL": "set" if _clean_env(os.getenv("MYSQL_URL")) else "empty",
         "MARIADB_URL": "set" if _clean_env(os.getenv("MARIADB_URL")) else "empty",
         "MYSQL_PUBLIC_URL": "set" if _clean_env(os.getenv("MYSQL_PUBLIC_URL")) else "empty",
+        "POSTGRES_HOST": _clean_env(os.getenv("POSTGRES_HOST")) or _clean_env(os.getenv("PGHOST")) or "(empty)",
         "MARIADB_HOST": _clean_env(os.getenv("MARIADB_HOST")) or "(empty)",
         "MYSQLHOST": _clean_env(os.getenv("MYSQLHOST")) or "(empty)",
         "resolved_url": safe_url,
     }
+
+
+def current_dialect() -> str:
+    return get_engine().dialect.name
+
+
+def is_postgres() -> bool:
+    return current_dialect().startswith("postgresql")
+
+
+def upsert_accounts_sql() -> str:
+    if is_postgres():
+        return """
+            INSERT INTO accounts(user_id, code, name, type)
+            VALUES(:u, :c, :n, :t)
+            ON CONFLICT (user_id, code) DO UPDATE SET
+                name = EXCLUDED.name,
+                type = EXCLUDED.type
+        """
+    return """
+        INSERT INTO accounts(user_id, code, name, type)
+        VALUES(:u, :c, :n, :t)
+        ON DUPLICATE KEY UPDATE
+            name = VALUES(name),
+            type = VALUES(type)
+    """
+
+
+def upsert_inventory_sql() -> str:
+    if is_postgres():
+        return """
+            INSERT INTO inventory(user_id, product, current_stock, min_stock, unit)
+            VALUES(:u, :p, :cs, :ms, :un)
+            ON CONFLICT (user_id, product) DO UPDATE SET
+                current_stock = EXCLUDED.current_stock,
+                min_stock = EXCLUDED.min_stock,
+                unit = EXCLUDED.unit,
+                updated_at = CURRENT_TIMESTAMP
+        """
+    return """
+        INSERT INTO inventory(user_id, product, current_stock, min_stock, unit)
+        VALUES(:u, :p, :cs, :ms, :un)
+        ON DUPLICATE KEY UPDATE
+            current_stock = VALUES(current_stock),
+            min_stock = VALUES(min_stock),
+            unit = VALUES(unit)
+    """
 
 def get_engine() -> Engine:
     """
@@ -168,13 +256,7 @@ def seed_basic_accounts_for_user(user_id: int) -> None:
         ("5100", "Costo de ventas", "Gasto"),
     ]
 
-    sql = text("""
-        INSERT INTO accounts(user_id, code, name, type)
-        VALUES(:u, :c, :n, :t)
-        ON DUPLICATE KEY UPDATE
-            name = VALUES(name),
-            type = VALUES(type)
-    """)
+    sql = text(upsert_accounts_sql())
 
     with eng.begin() as cn:
         for code, name, tipo in data:
@@ -185,15 +267,29 @@ def seed_knowledge_base_table() -> None:
     """Crea la tabla knowledge_base si no existe. Se llama una vez al arrancar."""
     eng = get_engine()
     with eng.begin() as cn:
-        cn.execute(text("""
-            CREATE TABLE IF NOT EXISTS knowledge_base (
-                id         INT AUTO_INCREMENT PRIMARY KEY,
-                user_id    INT          NOT NULL,
-                category   VARCHAR(80)  NOT NULL DEFAULT 'General',
-                title      VARCHAR(200) NOT NULL,
-                content    TEXT         NOT NULL,
-                active     TINYINT(1)   NOT NULL DEFAULT 1,
-                created_at TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
-                INDEX idx_kb_user (user_id)
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-        """))
+        if is_postgres():
+            cn.execute(text("""
+                CREATE TABLE IF NOT EXISTS knowledge_base (
+                    id         SERIAL PRIMARY KEY,
+                    user_id    INTEGER      NOT NULL,
+                    category   VARCHAR(80)  NOT NULL DEFAULT 'General',
+                    title      VARCHAR(200) NOT NULL,
+                    content    TEXT         NOT NULL,
+                    active     SMALLINT     NOT NULL DEFAULT 1,
+                    created_at TIMESTAMP    DEFAULT CURRENT_TIMESTAMP
+                );
+            """))
+            cn.execute(text("CREATE INDEX IF NOT EXISTS idx_kb_user ON knowledge_base(user_id);"))
+        else:
+            cn.execute(text("""
+                CREATE TABLE IF NOT EXISTS knowledge_base (
+                    id         INT AUTO_INCREMENT PRIMARY KEY,
+                    user_id    INT          NOT NULL,
+                    category   VARCHAR(80)  NOT NULL DEFAULT 'General',
+                    title      VARCHAR(200) NOT NULL,
+                    content    TEXT         NOT NULL,
+                    active     TINYINT(1)   NOT NULL DEFAULT 1,
+                    created_at TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+                    INDEX idx_kb_user (user_id)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+            """))

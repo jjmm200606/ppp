@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Any, Dict, Iterable, List, Tuple
 from sqlalchemy import text
 
-from lib.db import get_engine
+from lib.db import get_engine, is_postgres, upsert_inventory_sql
 from lib.patterns.observer import notify_observers, Event
 from lib.strategies.precio import PrecioFactory
 
@@ -33,6 +33,13 @@ class AccountingFacade:
         with self._eng().begin() as cn:
             cn.execute(text(sql), params)
 
+    def _insert_and_get_id(self, cn, sql: str, params: Dict[str, Any]) -> int:
+        if is_postgres():
+            row = cn.execute(text(sql + " RETURNING id"), params).first()
+            return int(row[0])
+        res = cn.execute(text(sql), params)
+        return int(res.lastrowid)
+
     def _notify(self, event: str, payload: Dict[str, Any]) -> None:
         notify_observers(event, payload)
 
@@ -57,11 +64,19 @@ class AccountingFacade:
 
         with self._eng().begin() as cn:
             if replace:
-                cn.execute(text("""
-                    DELETE ii FROM invoice_items ii
-                    INNER JOIN invoices i ON i.id = ii.invoice_id
-                    WHERE i.user_id = :u
-                """), {"u": u})
+                if is_postgres():
+                    cn.execute(text("""
+                        DELETE FROM invoice_items
+                        WHERE invoice_id IN (
+                            SELECT id FROM invoices WHERE user_id = :u
+                        )
+                    """), {"u": u})
+                else:
+                    cn.execute(text("""
+                        DELETE ii FROM invoice_items ii
+                        INNER JOIN invoices i ON i.id = ii.invoice_id
+                        WHERE i.user_id = :u
+                    """), {"u": u})
                 cn.execute(text("DELETE FROM invoices WHERE user_id=:u"), {"u": u})
                 cn.execute(text("DELETE FROM cart_sales WHERE user_id=:u"), {"u": u})
                 cn.execute(text("DELETE FROM cart_expenses WHERE user_id=:u"), {"u": u})
@@ -78,11 +93,11 @@ class AccountingFacade:
                 location = str(row.get("location") or "").strip()
                 active_raw = str(row.get("active") if row.get("active") is not None else "1").strip().lower()
                 active = 0 if active_raw in {"0", "false", "no"} else 1
-                res = cn.execute(
-                    text("INSERT INTO carts(user_id, name, location, active) VALUES(:u, :n, :l, :a)"),
+                cart_name_to_id[name] = self._insert_and_get_id(
+                    cn,
+                    "INSERT INTO carts(user_id, name, location, active) VALUES(:u, :n, :l, :a)",
                     {"u": u, "n": name, "l": location, "a": active},
                 )
-                cart_name_to_id[name] = int(res.lastrowid)
                 counts["carritos"] += 1
 
             client_name_to_id: Dict[str, int] = {}
@@ -92,11 +107,11 @@ class AccountingFacade:
                     continue
                 email = str(row.get("email") or "").strip()
                 phone = str(row.get("phone") or "").strip()
-                res = cn.execute(
-                    text("INSERT INTO clients(user_id, name, email, phone) VALUES(:u, :n, :e, :p)"),
+                client_name_to_id[name] = self._insert_and_get_id(
+                    cn,
+                    "INSERT INTO clients(user_id, name, email, phone) VALUES(:u, :n, :e, :p)",
                     {"u": u, "n": name, "e": email, "p": phone},
                 )
-                client_name_to_id[name] = int(res.lastrowid)
                 counts["clientes"] += 1
 
             for row in dataset.get("ventas", []):
@@ -151,11 +166,12 @@ class AccountingFacade:
                     continue
                 cart_name = str(row.get("cart") or "").strip()
                 cart_id = cart_name_to_id.get(cart_name) if cart_name else None
-                res = cn.execute(
-                    text("""
+                invoice_old_to_new[old_id] = self._insert_and_get_id(
+                    cn,
+                    """
                         INSERT INTO invoices(user_id, client_id, invoice_date, due_date, status, total, cart_id)
                         VALUES(:u, :cl, :fd, :vd, :st, :tt, :ca)
-                    """),
+                    """,
                     {
                         "u": u,
                         "cl": client_id,
@@ -167,7 +183,6 @@ class AccountingFacade:
                     },
                 )
                 old_id = str(row.get("id") or "").strip()
-                invoice_old_to_new[old_id] = int(res.lastrowid)
                 counts["facturas"] += 1
 
             for row in dataset.get("factura_items", []):
@@ -198,14 +213,7 @@ class AccountingFacade:
                 if not product:
                     continue
                 cn.execute(
-                    text("""
-                        INSERT INTO inventory(user_id, product, current_stock, min_stock, unit)
-                        VALUES(:u, :p, :cs, :ms, :un)
-                        ON DUPLICATE KEY UPDATE
-                            current_stock = VALUES(current_stock),
-                            min_stock = VALUES(min_stock),
-                            unit = VALUES(unit)
-                    """),
+                    text(upsert_inventory_sql()),
                     {
                         "u": u,
                         "p": product,
@@ -442,13 +450,13 @@ class AccountingFacade:
                       items: List[Tuple[str, float, float]]) -> int:
         u = self._uid()
         with self._eng().begin() as cn:
-            res = cn.execute(
-                text("""INSERT INTO invoices(user_id, client_id, invoice_date, due_date, status, total, cart_id)
-                        VALUES(:u,:cl,:fd,:vd,:st,:tt,:ca)"""),
+            inv_id = self._insert_and_get_id(
+                cn,
+                """INSERT INTO invoices(user_id, client_id, invoice_date, due_date, status, total, cart_id)
+                        VALUES(:u,:cl,:fd,:vd,:st,:tt,:ca)""",
                 {"u": u, "cl": client_id, "fd": invoice_date, "vd": due_date,
                  "st": status, "tt": total, "ca": cart_id}
             )
-            inv_id = res.lastrowid
             for desc, qty, price in items:
                 if desc.strip() and qty > 0:
                     cn.execute(
@@ -502,14 +510,7 @@ class AccountingFacade:
         """Inserta o actualiza un producto en el inventario."""
         u = self._uid()
         self._execute(
-            """
-            INSERT INTO inventory(user_id, product, current_stock, min_stock, unit)
-            VALUES(:u, :p, :cs, :ms, :un)
-            ON DUPLICATE KEY UPDATE
-                current_stock = VALUES(current_stock),
-                min_stock     = VALUES(min_stock),
-                unit          = VALUES(unit)
-            """,
+            upsert_inventory_sql(),
             {"u": u, "p": product.strip(), "cs": current_stock,
              "ms": min_stock, "un": unit.strip() or "unidades"},
         )

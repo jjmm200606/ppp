@@ -40,9 +40,12 @@ if show_db_debug:
     st.title("DB Debug")
     st.write({
         "DATABASE_URL": debug["DATABASE_URL"],
+        "POSTGRES_URL": debug["POSTGRES_URL"],
+        "POSTGRESQL_URL": debug["POSTGRESQL_URL"],
         "MYSQL_URL": debug["MYSQL_URL"],
         "MARIADB_URL": debug["MARIADB_URL"],
         "MYSQL_PUBLIC_URL": debug["MYSQL_PUBLIC_URL"],
+        "POSTGRES_HOST": debug["POSTGRES_HOST"],
         "MARIADB_HOST": debug["MARIADB_HOST"],
         "MYSQLHOST": debug["MYSQLHOST"],
     })
