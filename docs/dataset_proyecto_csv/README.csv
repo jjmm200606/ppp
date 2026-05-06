@@ -1,0 +1,9 @@
+Hoja,Descripcion
+carritos,Puntos de venta activos del negocio.
+ventas,"Ventas por fecha, carrito, producto, cantidad, precio y costo."
+gastos,Gastos operativos por carrito y categoria.
+clientes,Clientes para seguimiento y facturacion.
+facturas,Facturas asociadas a clientes y carritos.
+factura_items,Detalle de productos/servicios facturados.
+inventario,"Stock actual, minimo y estado."
+conocimiento_chatbot,Reglas resumidas que puedes importar como conocimiento del bot.

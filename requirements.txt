@@ -1,0 +1,10 @@
+streamlit>=1.45
+sqlalchemy>=2.0
+pymysql>=1.1
+python-dotenv>=1.0
+pandas>=2.2
+numpy>=1.26
+plotly>=5.22
+scikit-learn>=1.4
+joblib>=1.4
+groq>=0.9

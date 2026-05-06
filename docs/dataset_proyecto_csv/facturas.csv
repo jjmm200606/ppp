@@ -1,0 +1,4 @@
+id,client_id,client,cart_id,cart,invoice_date,due_date,status,total
+1,1,Colegio San Martin,2,Carrito Universidad,2026-03-12,2026-03-20,Pendiente,480000
+2,2,Eventos La 40,4,Carrito Estadio,2026-03-18,2026-03-25,Pagada,720000
+3,3,Empresa ServiPlus,1,Carrito Centro,2026-03-26,2026-04-05,Pendiente,360000

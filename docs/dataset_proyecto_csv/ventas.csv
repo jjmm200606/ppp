@@ -1,0 +1,273 @@
+id,sale_date,cart_id,cart_name,product,qty,unit_price,unit_cost,importe,costo,utilidad,notes
+1,2026-03-01,1,Carrito Centro,Perro caliente clasico,10,8500,4200,85000,42000,43000,Dato de entrenamiento
+2,2026-03-01,1,Carrito Centro,Perro ranchero,18,14000,7600,252000,136800,115200,Dato de entrenamiento
+3,2026-03-01,1,Carrito Centro,Perro especial,15,12000,6200,180000,93000,87000,Dato de entrenamiento
+4,2026-03-01,2,Carrito Universidad,Perro caliente clasico,31,8500,4200,263500,130200,133300,Dato de entrenamiento
+5,2026-03-01,2,Carrito Universidad,Perro caliente clasico,32,8500,4200,272000,134400,137600,Dato de entrenamiento
+6,2026-03-01,2,Carrito Universidad,Combo perro + bebida,11,15500,8300,170500,91300,79200,Dato de entrenamiento
+7,2026-03-01,3,Carrito Terminal,Perro caliente clasico,17,8500,4200,144500,71400,73100,Dato de entrenamiento
+8,2026-03-01,4,Carrito Estadio,Bebida,33,3500,1800,115500,59400,56100,Dato de entrenamiento
+9,2026-03-02,1,Carrito Centro,Bebida,14,3500,1800,49000,25200,23800,Dato de entrenamiento
+10,2026-03-02,2,Carrito Universidad,Bebida,21,3500,1800,73500,37800,35700,Dato de entrenamiento
+11,2026-03-02,2,Carrito Universidad,Perro especial,22,12000,6200,264000,136400,127600,Dato de entrenamiento
+12,2026-03-02,2,Carrito Universidad,Bebida,16,3500,1800,56000,28800,27200,Dato de entrenamiento
+13,2026-03-02,3,Carrito Terminal,Perro especial,21,12000,6200,252000,130200,121800,Dato de entrenamiento
+14,2026-03-02,4,Carrito Estadio,Perro ranchero,12,14000,7600,168000,91200,76800,Dato de entrenamiento
+15,2026-03-02,4,Carrito Estadio,Perro especial,18,12000,6200,216000,111600,104400,Dato de entrenamiento
+16,2026-03-03,1,Carrito Centro,Perro caliente clasico,20,8500,4200,170000,84000,86000,Dato de entrenamiento
+17,2026-03-03,2,Carrito Universidad,Perro ranchero,19,14000,7600,266000,144400,121600,Dato de entrenamiento
+18,2026-03-03,3,Carrito Terminal,Perro ranchero,9,14000,7600,126000,68400,57600,Dato de entrenamiento
+19,2026-03-03,3,Carrito Terminal,Combo perro + bebida,25,15500,8300,387500,207500,180000,Dato de entrenamiento
+20,2026-03-03,3,Carrito Terminal,Perro caliente clasico,20,8500,4200,170000,84000,86000,Dato de entrenamiento
+21,2026-03-03,4,Carrito Estadio,Bebida,17,3500,1800,59500,30600,28900,Dato de entrenamiento
+22,2026-03-04,1,Carrito Centro,Bebida,19,3500,1800,66500,34200,32300,Dato de entrenamiento
+23,2026-03-04,1,Carrito Centro,Bebida,14,3500,1800,49000,25200,23800,Dato de entrenamiento
+24,2026-03-04,1,Carrito Centro,Perro caliente clasico,9,8500,4200,76500,37800,38700,Dato de entrenamiento
+25,2026-03-04,2,Carrito Universidad,Perro especial,17,12000,6200,204000,105400,98600,Dato de entrenamiento
+26,2026-03-04,2,Carrito Universidad,Perro caliente clasico,15,8500,4200,127500,63000,64500,Dato de entrenamiento
+27,2026-03-04,2,Carrito Universidad,Perro caliente clasico,20,8500,4200,170000,84000,86000,Dato de entrenamiento
+28,2026-03-04,3,Carrito Terminal,Combo perro + bebida,28,15500,8300,434000,232400,201600,Dato de entrenamiento
+29,2026-03-04,3,Carrito Terminal,Perro ranchero,13,14000,7600,182000,98800,83200,Dato de entrenamiento
+30,2026-03-04,4,Carrito Estadio,Perro ranchero,14,14000,7600,196000,106400,89600,Dato de entrenamiento
+31,2026-03-04,4,Carrito Estadio,Perro ranchero,28,14000,7600,392000,212800,179200,Dato de entrenamiento
+32,2026-03-05,1,Carrito Centro,Bebida,28,3500,1800,98000,50400,47600,Dato de entrenamiento
+33,2026-03-05,2,Carrito Universidad,Bebida,15,3500,1800,52500,27000,25500,Dato de entrenamiento
+34,2026-03-05,3,Carrito Terminal,Combo perro + bebida,20,15500,8300,310000,166000,144000,Dato de entrenamiento
+35,2026-03-05,4,Carrito Estadio,Bebida,15,3500,1800,52500,27000,25500,Dato de entrenamiento
+36,2026-03-05,4,Carrito Estadio,Perro ranchero,9,14000,7600,126000,68400,57600,Dato de entrenamiento
+37,2026-03-06,1,Carrito Centro,Perro caliente clasico,18,8500,4200,153000,75600,77400,Dato de entrenamiento
+38,2026-03-06,2,Carrito Universidad,Perro ranchero,10,14000,7600,140000,76000,64000,Dato de entrenamiento
+39,2026-03-06,2,Carrito Universidad,Perro especial,26,12000,6200,312000,161200,150800,Dato de entrenamiento
+40,2026-03-06,3,Carrito Terminal,Perro ranchero,14,14000,7600,196000,106400,89600,Dato de entrenamiento
+41,2026-03-06,3,Carrito Terminal,Combo perro + bebida,20,15500,8300,310000,166000,144000,Dato de entrenamiento
+42,2026-03-06,3,Carrito Terminal,Combo perro + bebida,12,15500,8300,186000,99600,86400,Dato de entrenamiento
+43,2026-03-06,4,Carrito Estadio,Perro especial,15,12000,6200,180000,93000,87000,Dato de entrenamiento
+44,2026-03-06,4,Carrito Estadio,Bebida,25,3500,1800,87500,45000,42500,Dato de entrenamiento
+45,2026-03-07,1,Carrito Centro,Bebida,26,3500,1800,91000,46800,44200,Dato de entrenamiento
+46,2026-03-07,1,Carrito Centro,Bebida,25,3500,1800,87500,45000,42500,Dato de entrenamiento
+47,2026-03-07,2,Carrito Universidad,Perro especial,15,12000,6200,180000,93000,87000,Dato de entrenamiento
+48,2026-03-07,2,Carrito Universidad,Bebida,28,3500,1800,98000,50400,47600,Dato de entrenamiento
+49,2026-03-07,3,Carrito Terminal,Perro caliente clasico,13,8500,4200,110500,54600,55900,Dato de entrenamiento
+50,2026-03-07,4,Carrito Estadio,Perro especial,26,12000,6200,312000,161200,150800,Dato de entrenamiento
+51,2026-03-08,1,Carrito Centro,Perro caliente clasico,25,8500,4200,212500,105000,107500,Dato de entrenamiento
+52,2026-03-08,1,Carrito Centro,Combo perro + bebida,33,15500,8300,511500,273900,237600,Dato de entrenamiento
+53,2026-03-08,1,Carrito Centro,Combo perro + bebida,30,15500,8300,465000,249000,216000,Dato de entrenamiento
+54,2026-03-08,2,Carrito Universidad,Bebida,10,3500,1800,35000,18000,17000,Dato de entrenamiento
+55,2026-03-08,2,Carrito Universidad,Perro caliente clasico,31,8500,4200,263500,130200,133300,Dato de entrenamiento
+56,2026-03-08,3,Carrito Terminal,Perro ranchero,13,14000,7600,182000,98800,83200,Dato de entrenamiento
+57,2026-03-08,3,Carrito Terminal,Perro ranchero,26,14000,7600,364000,197600,166400,Dato de entrenamiento
+58,2026-03-08,4,Carrito Estadio,Combo perro + bebida,10,15500,8300,155000,83000,72000,Dato de entrenamiento
+59,2026-03-09,1,Carrito Centro,Perro ranchero,24,14000,7600,336000,182400,153600,Dato de entrenamiento
+60,2026-03-09,1,Carrito Centro,Perro especial,24,12000,6200,288000,148800,139200,Dato de entrenamiento
+61,2026-03-09,1,Carrito Centro,Perro caliente clasico,28,8500,4200,238000,117600,120400,Dato de entrenamiento
+62,2026-03-09,2,Carrito Universidad,Bebida,27,3500,1800,94500,48600,45900,Dato de entrenamiento
+63,2026-03-09,2,Carrito Universidad,Perro especial,12,12000,6200,144000,74400,69600,Dato de entrenamiento
+64,2026-03-09,3,Carrito Terminal,Perro especial,25,12000,6200,300000,155000,145000,Dato de entrenamiento
+65,2026-03-09,3,Carrito Terminal,Bebida,8,3500,1800,28000,14400,13600,Dato de entrenamiento
+66,2026-03-09,4,Carrito Estadio,Perro ranchero,23,14000,7600,322000,174800,147200,Dato de entrenamiento
+67,2026-03-09,4,Carrito Estadio,Perro caliente clasico,11,8500,4200,93500,46200,47300,Dato de entrenamiento
+68,2026-03-09,4,Carrito Estadio,Perro ranchero,17,14000,7600,238000,129200,108800,Dato de entrenamiento
+69,2026-03-10,1,Carrito Centro,Perro caliente clasico,15,8500,4200,127500,63000,64500,Dato de entrenamiento
+70,2026-03-10,2,Carrito Universidad,Perro caliente clasico,10,8500,4200,85000,42000,43000,Dato de entrenamiento
+71,2026-03-10,2,Carrito Universidad,Combo perro + bebida,10,15500,8300,155000,83000,72000,Dato de entrenamiento
+72,2026-03-10,2,Carrito Universidad,Bebida,12,3500,1800,42000,21600,20400,Dato de entrenamiento
+73,2026-03-10,3,Carrito Terminal,Combo perro + bebida,25,15500,8300,387500,207500,180000,Dato de entrenamiento
+74,2026-03-10,4,Carrito Estadio,Perro ranchero,24,14000,7600,336000,182400,153600,Dato de entrenamiento
+75,2026-03-11,1,Carrito Centro,Combo perro + bebida,14,15500,8300,217000,116200,100800,Dato de entrenamiento
+76,2026-03-11,1,Carrito Centro,Bebida,14,3500,1800,49000,25200,23800,Dato de entrenamiento
+77,2026-03-11,1,Carrito Centro,Perro ranchero,20,14000,7600,280000,152000,128000,Dato de entrenamiento
+78,2026-03-11,2,Carrito Universidad,Perro ranchero,22,14000,7600,308000,167200,140800,Dato de entrenamiento
+79,2026-03-11,2,Carrito Universidad,Bebida,22,3500,1800,77000,39600,37400,Dato de entrenamiento
+80,2026-03-11,2,Carrito Universidad,Perro caliente clasico,15,8500,4200,127500,63000,64500,Dato de entrenamiento
+81,2026-03-11,3,Carrito Terminal,Perro caliente clasico,18,8500,4200,153000,75600,77400,Dato de entrenamiento
+82,2026-03-11,4,Carrito Estadio,Bebida,25,3500,1800,87500,45000,42500,Dato de entrenamiento
+83,2026-03-12,1,Carrito Centro,Bebida,15,3500,1800,52500,27000,25500,Dato de entrenamiento
+84,2026-03-12,2,Carrito Universidad,Perro caliente clasico,28,8500,4200,238000,117600,120400,Dato de entrenamiento
+85,2026-03-12,3,Carrito Terminal,Perro especial,10,12000,6200,120000,62000,58000,Dato de entrenamiento
+86,2026-03-12,4,Carrito Estadio,Perro ranchero,10,14000,7600,140000,76000,64000,Dato de entrenamiento
+87,2026-03-13,1,Carrito Centro,Perro especial,16,12000,6200,192000,99200,92800,Dato de entrenamiento
+88,2026-03-13,1,Carrito Centro,Combo perro + bebida,14,15500,8300,217000,116200,100800,Dato de entrenamiento
+89,2026-03-13,1,Carrito Centro,Bebida,12,3500,1800,42000,21600,20400,Dato de entrenamiento
+90,2026-03-13,2,Carrito Universidad,Bebida,26,3500,1800,91000,46800,44200,Dato de entrenamiento
+91,2026-03-13,2,Carrito Universidad,Combo perro + bebida,15,15500,8300,232500,124500,108000,Dato de entrenamiento
+92,2026-03-13,2,Carrito Universidad,Combo perro + bebida,21,15500,8300,325500,174300,151200,Dato de entrenamiento
+93,2026-03-13,3,Carrito Terminal,Perro caliente clasico,11,8500,4200,93500,46200,47300,Dato de entrenamiento
+94,2026-03-13,4,Carrito Estadio,Combo perro + bebida,19,15500,8300,294500,157700,136800,Dato de entrenamiento
+95,2026-03-13,4,Carrito Estadio,Combo perro + bebida,21,15500,8300,325500,174300,151200,Dato de entrenamiento
+96,2026-03-13,4,Carrito Estadio,Combo perro + bebida,9,15500,8300,139500,74700,64800,Dato de entrenamiento
+97,2026-03-14,1,Carrito Centro,Perro caliente clasico,11,8500,4200,93500,46200,47300,Dato de entrenamiento
+98,2026-03-14,1,Carrito Centro,Combo perro + bebida,22,15500,8300,341000,182600,158400,Dato de entrenamiento
+99,2026-03-14,1,Carrito Centro,Perro caliente clasico,18,8500,4200,153000,75600,77400,Dato de entrenamiento
+100,2026-03-14,2,Carrito Universidad,Perro especial,31,12000,6200,372000,192200,179800,Dato de entrenamiento
+101,2026-03-14,3,Carrito Terminal,Perro especial,26,12000,6200,312000,161200,150800,Dato de entrenamiento
+102,2026-03-14,3,Carrito Terminal,Perro especial,20,12000,6200,240000,124000,116000,Dato de entrenamiento
+103,2026-03-14,4,Carrito Estadio,Perro especial,12,12000,6200,144000,74400,69600,Dato de entrenamiento
+104,2026-03-14,4,Carrito Estadio,Combo perro + bebida,31,15500,8300,480500,257300,223200,Dato de entrenamiento
+105,2026-03-15,1,Carrito Centro,Perro caliente clasico,35,8500,4200,297500,147000,150500,Dato de entrenamiento
+106,2026-03-15,2,Carrito Universidad,Perro caliente clasico,12,8500,4200,102000,50400,51600,Dato de entrenamiento
+107,2026-03-15,2,Carrito Universidad,Perro especial,16,12000,6200,192000,99200,92800,Dato de entrenamiento
+108,2026-03-15,2,Carrito Universidad,Combo perro + bebida,28,15500,8300,434000,232400,201600,Dato de entrenamiento
+109,2026-03-15,3,Carrito Terminal,Perro especial,25,12000,6200,300000,155000,145000,Dato de entrenamiento
+110,2026-03-15,3,Carrito Terminal,Perro caliente clasico,16,8500,4200,136000,67200,68800,Dato de entrenamiento
+111,2026-03-15,4,Carrito Estadio,Perro caliente clasico,25,8500,4200,212500,105000,107500,Dato de entrenamiento
+112,2026-03-15,4,Carrito Estadio,Perro ranchero,27,14000,7600,378000,205200,172800,Dato de entrenamiento
+113,2026-03-16,1,Carrito Centro,Combo perro + bebida,25,15500,8300,387500,207500,180000,Dato de entrenamiento
+114,2026-03-16,1,Carrito Centro,Combo perro + bebida,12,15500,8300,186000,99600,86400,Dato de entrenamiento
+115,2026-03-16,2,Carrito Universidad,Perro ranchero,14,14000,7600,196000,106400,89600,Dato de entrenamiento
+116,2026-03-16,3,Carrito Terminal,Bebida,25,3500,1800,87500,45000,42500,Dato de entrenamiento
+117,2026-03-16,4,Carrito Estadio,Perro ranchero,9,14000,7600,126000,68400,57600,Dato de entrenamiento
+118,2026-03-17,1,Carrito Centro,Bebida,23,3500,1800,80500,41400,39100,Dato de entrenamiento
+119,2026-03-17,2,Carrito Universidad,Bebida,13,3500,1800,45500,23400,22100,Dato de entrenamiento
+120,2026-03-17,2,Carrito Universidad,Perro caliente clasico,24,8500,4200,204000,100800,103200,Dato de entrenamiento
+121,2026-03-17,2,Carrito Universidad,Perro caliente clasico,13,8500,4200,110500,54600,55900,Dato de entrenamiento
+122,2026-03-17,3,Carrito Terminal,Bebida,10,3500,1800,35000,18000,17000,Dato de entrenamiento
+123,2026-03-17,4,Carrito Estadio,Perro especial,20,12000,6200,240000,124000,116000,Dato de entrenamiento
+124,2026-03-17,4,Carrito Estadio,Perro caliente clasico,26,8500,4200,221000,109200,111800,Dato de entrenamiento
+125,2026-03-17,4,Carrito Estadio,Perro especial,26,12000,6200,312000,161200,150800,Dato de entrenamiento
+126,2026-03-18,1,Carrito Centro,Perro caliente clasico,27,8500,4200,229500,113400,116100,Dato de entrenamiento
+127,2026-03-18,1,Carrito Centro,Perro caliente clasico,21,8500,4200,178500,88200,90300,Dato de entrenamiento
+128,2026-03-18,1,Carrito Centro,Bebida,26,3500,1800,91000,46800,44200,Dato de entrenamiento
+129,2026-03-18,2,Carrito Universidad,Perro ranchero,16,14000,7600,224000,121600,102400,Dato de entrenamiento
+130,2026-03-18,2,Carrito Universidad,Perro especial,18,12000,6200,216000,111600,104400,Dato de entrenamiento
+131,2026-03-18,2,Carrito Universidad,Perro especial,16,12000,6200,192000,99200,92800,Dato de entrenamiento
+132,2026-03-18,3,Carrito Terminal,Perro especial,28,12000,6200,336000,173600,162400,Dato de entrenamiento
+133,2026-03-18,3,Carrito Terminal,Perro ranchero,22,14000,7600,308000,167200,140800,Dato de entrenamiento
+134,2026-03-18,4,Carrito Estadio,Perro caliente clasico,8,8500,4200,68000,33600,34400,Dato de entrenamiento
+135,2026-03-18,4,Carrito Estadio,Combo perro + bebida,27,15500,8300,418500,224100,194400,Dato de entrenamiento
+136,2026-03-19,1,Carrito Centro,Perro caliente clasico,10,8500,4200,85000,42000,43000,Dato de entrenamiento
+137,2026-03-19,1,Carrito Centro,Bebida,14,3500,1800,49000,25200,23800,Dato de entrenamiento
+138,2026-03-19,1,Carrito Centro,Bebida,16,3500,1800,56000,28800,27200,Dato de entrenamiento
+139,2026-03-19,2,Carrito Universidad,Perro ranchero,10,14000,7600,140000,76000,64000,Dato de entrenamiento
+140,2026-03-19,3,Carrito Terminal,Perro ranchero,17,14000,7600,238000,129200,108800,Dato de entrenamiento
+141,2026-03-19,4,Carrito Estadio,Combo perro + bebida,25,15500,8300,387500,207500,180000,Dato de entrenamiento
+142,2026-03-20,1,Carrito Centro,Perro ranchero,27,14000,7600,378000,205200,172800,Dato de entrenamiento
+143,2026-03-20,1,Carrito Centro,Bebida,8,3500,1800,28000,14400,13600,Dato de entrenamiento
+144,2026-03-20,1,Carrito Centro,Bebida,17,3500,1800,59500,30600,28900,Dato de entrenamiento
+145,2026-03-20,2,Carrito Universidad,Perro caliente clasico,12,8500,4200,102000,50400,51600,Dato de entrenamiento
+146,2026-03-20,2,Carrito Universidad,Perro ranchero,11,14000,7600,154000,83600,70400,Dato de entrenamiento
+147,2026-03-20,2,Carrito Universidad,Perro caliente clasico,25,8500,4200,212500,105000,107500,Dato de entrenamiento
+148,2026-03-20,3,Carrito Terminal,Perro ranchero,17,14000,7600,238000,129200,108800,Dato de entrenamiento
+149,2026-03-20,4,Carrito Estadio,Perro especial,18,12000,6200,216000,111600,104400,Dato de entrenamiento
+150,2026-03-20,4,Carrito Estadio,Perro especial,28,12000,6200,336000,173600,162400,Dato de entrenamiento
+151,2026-03-20,4,Carrito Estadio,Perro ranchero,24,14000,7600,336000,182400,153600,Dato de entrenamiento
+152,2026-03-21,1,Carrito Centro,Perro ranchero,11,14000,7600,154000,83600,70400,Dato de entrenamiento
+153,2026-03-21,1,Carrito Centro,Perro caliente clasico,35,8500,4200,297500,147000,150500,Dato de entrenamiento
+154,2026-03-21,2,Carrito Universidad,Perro ranchero,11,14000,7600,154000,83600,70400,Dato de entrenamiento
+155,2026-03-21,2,Carrito Universidad,Perro caliente clasico,22,8500,4200,187000,92400,94600,Dato de entrenamiento
+156,2026-03-21,3,Carrito Terminal,Perro ranchero,16,14000,7600,224000,121600,102400,Dato de entrenamiento
+157,2026-03-21,4,Carrito Estadio,Combo perro + bebida,31,15500,8300,480500,257300,223200,Dato de entrenamiento
+158,2026-03-21,4,Carrito Estadio,Combo perro + bebida,31,15500,8300,480500,257300,223200,Dato de entrenamiento
+159,2026-03-21,4,Carrito Estadio,Perro caliente clasico,13,8500,4200,110500,54600,55900,Dato de entrenamiento
+160,2026-03-22,1,Carrito Centro,Perro especial,31,12000,6200,372000,192200,179800,Dato de entrenamiento
+161,2026-03-22,2,Carrito Universidad,Perro ranchero,32,14000,7600,448000,243200,204800,Dato de entrenamiento
+162,2026-03-22,3,Carrito Terminal,Perro especial,26,12000,6200,312000,161200,150800,Dato de entrenamiento
+163,2026-03-22,3,Carrito Terminal,Perro especial,11,12000,6200,132000,68200,63800,Dato de entrenamiento
+164,2026-03-22,3,Carrito Terminal,Perro ranchero,23,14000,7600,322000,174800,147200,Dato de entrenamiento
+165,2026-03-22,4,Carrito Estadio,Perro ranchero,17,14000,7600,238000,129200,108800,Dato de entrenamiento
+166,2026-03-23,1,Carrito Centro,Perro especial,11,12000,6200,132000,68200,63800,Dato de entrenamiento
+167,2026-03-23,1,Carrito Centro,Perro ranchero,25,14000,7600,350000,190000,160000,Dato de entrenamiento
+168,2026-03-23,1,Carrito Centro,Combo perro + bebida,27,15500,8300,418500,224100,194400,Dato de entrenamiento
+169,2026-03-23,2,Carrito Universidad,Perro especial,15,12000,6200,180000,93000,87000,Dato de entrenamiento
+170,2026-03-23,2,Carrito Universidad,Perro especial,13,12000,6200,156000,80600,75400,Dato de entrenamiento
+171,2026-03-23,2,Carrito Universidad,Combo perro + bebida,8,15500,8300,124000,66400,57600,Dato de entrenamiento
+172,2026-03-23,3,Carrito Terminal,Perro ranchero,21,14000,7600,294000,159600,134400,Dato de entrenamiento
+173,2026-03-23,4,Carrito Estadio,Perro especial,16,12000,6200,192000,99200,92800,Dato de entrenamiento
+174,2026-03-23,4,Carrito Estadio,Perro especial,11,12000,6200,132000,68200,63800,Dato de entrenamiento
+175,2026-03-23,4,Carrito Estadio,Combo perro + bebida,9,15500,8300,139500,74700,64800,Dato de entrenamiento
+176,2026-03-24,1,Carrito Centro,Perro especial,14,12000,6200,168000,86800,81200,Dato de entrenamiento
+177,2026-03-24,1,Carrito Centro,Combo perro + bebida,19,15500,8300,294500,157700,136800,Dato de entrenamiento
+178,2026-03-24,2,Carrito Universidad,Perro especial,15,12000,6200,180000,93000,87000,Dato de entrenamiento
+179,2026-03-24,2,Carrito Universidad,Perro caliente clasico,14,8500,4200,119000,58800,60200,Dato de entrenamiento
+180,2026-03-24,3,Carrito Terminal,Perro ranchero,16,14000,7600,224000,121600,102400,Dato de entrenamiento
+181,2026-03-24,3,Carrito Terminal,Perro caliente clasico,16,8500,4200,136000,67200,68800,Dato de entrenamiento
+182,2026-03-24,4,Carrito Estadio,Bebida,20,3500,1800,70000,36000,34000,Dato de entrenamiento
+183,2026-03-24,4,Carrito Estadio,Bebida,18,3500,1800,63000,32400,30600,Dato de entrenamiento
+184,2026-03-25,1,Carrito Centro,Perro caliente clasico,16,8500,4200,136000,67200,68800,Dato de entrenamiento
+185,2026-03-25,2,Carrito Universidad,Bebida,16,3500,1800,56000,28800,27200,Dato de entrenamiento
+186,2026-03-25,3,Carrito Terminal,Perro caliente clasico,27,8500,4200,229500,113400,116100,Dato de entrenamiento
+187,2026-03-25,4,Carrito Estadio,Perro ranchero,18,14000,7600,252000,136800,115200,Dato de entrenamiento
+188,2026-03-25,4,Carrito Estadio,Combo perro + bebida,27,15500,8300,418500,224100,194400,Dato de entrenamiento
+189,2026-03-26,1,Carrito Centro,Perro caliente clasico,20,8500,4200,170000,84000,86000,Dato de entrenamiento
+190,2026-03-26,1,Carrito Centro,Bebida,14,3500,1800,49000,25200,23800,Dato de entrenamiento
+191,2026-03-26,1,Carrito Centro,Perro ranchero,9,14000,7600,126000,68400,57600,Dato de entrenamiento
+192,2026-03-26,2,Carrito Universidad,Combo perro + bebida,8,15500,8300,124000,66400,57600,Dato de entrenamiento
+193,2026-03-26,2,Carrito Universidad,Bebida,25,3500,1800,87500,45000,42500,Dato de entrenamiento
+194,2026-03-26,2,Carrito Universidad,Perro especial,19,12000,6200,228000,117800,110200,Dato de entrenamiento
+195,2026-03-26,3,Carrito Terminal,Perro caliente clasico,18,8500,4200,153000,75600,77400,Dato de entrenamiento
+196,2026-03-26,3,Carrito Terminal,Bebida,18,3500,1800,63000,32400,30600,Dato de entrenamiento
+197,2026-03-26,4,Carrito Estadio,Perro caliente clasico,17,8500,4200,144500,71400,73100,Dato de entrenamiento
+198,2026-03-26,4,Carrito Estadio,Bebida,17,3500,1800,59500,30600,28900,Dato de entrenamiento
+199,2026-03-26,4,Carrito Estadio,Combo perro + bebida,18,15500,8300,279000,149400,129600,Dato de entrenamiento
+200,2026-03-27,1,Carrito Centro,Perro ranchero,25,14000,7600,350000,190000,160000,Dato de entrenamiento
+201,2026-03-27,1,Carrito Centro,Perro especial,14,12000,6200,168000,86800,81200,Dato de entrenamiento
+202,2026-03-27,2,Carrito Universidad,Combo perro + bebida,13,15500,8300,201500,107900,93600,Dato de entrenamiento
+203,2026-03-27,2,Carrito Universidad,Bebida,26,3500,1800,91000,46800,44200,Dato de entrenamiento
+204,2026-03-27,3,Carrito Terminal,Combo perro + bebida,25,15500,8300,387500,207500,180000,Dato de entrenamiento
+205,2026-03-27,3,Carrito Terminal,Perro caliente clasico,17,8500,4200,144500,71400,73100,Dato de entrenamiento
+206,2026-03-27,4,Carrito Estadio,Perro especial,21,12000,6200,252000,130200,121800,Dato de entrenamiento
+207,2026-03-27,4,Carrito Estadio,Bebida,27,3500,1800,94500,48600,45900,Dato de entrenamiento
+208,2026-03-28,1,Carrito Centro,Perro ranchero,27,14000,7600,378000,205200,172800,Dato de entrenamiento
+209,2026-03-28,1,Carrito Centro,Combo perro + bebida,27,15500,8300,418500,224100,194400,Dato de entrenamiento
+210,2026-03-28,1,Carrito Centro,Perro especial,30,12000,6200,360000,186000,174000,Dato de entrenamiento
+211,2026-03-28,2,Carrito Universidad,Perro especial,12,12000,6200,144000,74400,69600,Dato de entrenamiento
+212,2026-03-28,2,Carrito Universidad,Perro ranchero,30,14000,7600,420000,228000,192000,Dato de entrenamiento
+213,2026-03-28,3,Carrito Terminal,Bebida,22,3500,1800,77000,39600,37400,Dato de entrenamiento
+214,2026-03-28,3,Carrito Terminal,Perro caliente clasico,18,8500,4200,153000,75600,77400,Dato de entrenamiento
+215,2026-03-28,3,Carrito Terminal,Perro ranchero,18,14000,7600,252000,136800,115200,Dato de entrenamiento
+216,2026-03-28,4,Carrito Estadio,Perro especial,10,12000,6200,120000,62000,58000,Dato de entrenamiento
+217,2026-03-29,1,Carrito Centro,Perro especial,28,12000,6200,336000,173600,162400,Dato de entrenamiento
+218,2026-03-29,2,Carrito Universidad,Perro caliente clasico,27,8500,4200,229500,113400,116100,Dato de entrenamiento
+219,2026-03-29,2,Carrito Universidad,Combo perro + bebida,35,15500,8300,542500,290500,252000,Dato de entrenamiento
+220,2026-03-29,2,Carrito Universidad,Bebida,17,3500,1800,59500,30600,28900,Dato de entrenamiento
+221,2026-03-29,3,Carrito Terminal,Combo perro + bebida,28,15500,8300,434000,232400,201600,Dato de entrenamiento
+222,2026-03-29,3,Carrito Terminal,Combo perro + bebida,18,15500,8300,279000,149400,129600,Dato de entrenamiento
+223,2026-03-29,3,Carrito Terminal,Perro especial,35,12000,6200,420000,217000,203000,Dato de entrenamiento
+224,2026-03-29,4,Carrito Estadio,Perro caliente clasico,13,8500,4200,110500,54600,55900,Dato de entrenamiento
+225,2026-03-29,4,Carrito Estadio,Combo perro + bebida,18,15500,8300,279000,149400,129600,Dato de entrenamiento
+226,2026-03-29,4,Carrito Estadio,Perro especial,30,12000,6200,360000,186000,174000,Dato de entrenamiento
+227,2026-03-30,1,Carrito Centro,Perro caliente clasico,25,8500,4200,212500,105000,107500,Dato de entrenamiento
+228,2026-03-30,1,Carrito Centro,Perro especial,11,12000,6200,132000,68200,63800,Dato de entrenamiento
+229,2026-03-30,2,Carrito Universidad,Perro especial,22,12000,6200,264000,136400,127600,Dato de entrenamiento
+230,2026-03-30,2,Carrito Universidad,Bebida,25,3500,1800,87500,45000,42500,Dato de entrenamiento
+231,2026-03-30,3,Carrito Terminal,Perro ranchero,22,14000,7600,308000,167200,140800,Dato de entrenamiento
+232,2026-03-30,3,Carrito Terminal,Bebida,24,3500,1800,84000,43200,40800,Dato de entrenamiento
+233,2026-03-30,3,Carrito Terminal,Combo perro + bebida,25,15500,8300,387500,207500,180000,Dato de entrenamiento
+234,2026-03-30,4,Carrito Estadio,Perro especial,23,12000,6200,276000,142600,133400,Dato de entrenamiento
+235,2026-03-30,4,Carrito Estadio,Combo perro + bebida,16,15500,8300,248000,132800,115200,Dato de entrenamiento
+236,2026-03-31,1,Carrito Centro,Perro ranchero,24,14000,7600,336000,182400,153600,Dato de entrenamiento
+237,2026-03-31,2,Carrito Universidad,Perro especial,16,12000,6200,192000,99200,92800,Dato de entrenamiento
+238,2026-03-31,2,Carrito Universidad,Combo perro + bebida,10,15500,8300,155000,83000,72000,Dato de entrenamiento
+239,2026-03-31,3,Carrito Terminal,Perro ranchero,15,14000,7600,210000,114000,96000,Dato de entrenamiento
+240,2026-03-31,3,Carrito Terminal,Perro ranchero,18,14000,7600,252000,136800,115200,Dato de entrenamiento
+241,2026-03-31,3,Carrito Terminal,Perro ranchero,25,14000,7600,350000,190000,160000,Dato de entrenamiento
+242,2026-03-31,4,Carrito Estadio,Perro especial,12,12000,6200,144000,74400,69600,Dato de entrenamiento
+243,2026-04-01,1,Carrito Centro,Combo perro + bebida,12,15500,8300,186000,99600,86400,Dato de entrenamiento
+244,2026-04-01,2,Carrito Universidad,Perro especial,10,12000,6200,120000,62000,58000,Dato de entrenamiento
+245,2026-04-01,2,Carrito Universidad,Combo perro + bebida,21,15500,8300,325500,174300,151200,Dato de entrenamiento
+246,2026-04-01,2,Carrito Universidad,Perro ranchero,25,14000,7600,350000,190000,160000,Dato de entrenamiento
+247,2026-04-01,3,Carrito Terminal,Combo perro + bebida,9,15500,8300,139500,74700,64800,Dato de entrenamiento
+248,2026-04-01,3,Carrito Terminal,Perro especial,21,12000,6200,252000,130200,121800,Dato de entrenamiento
+249,2026-04-01,4,Carrito Estadio,Bebida,8,3500,1800,28000,14400,13600,Dato de entrenamiento
+250,2026-04-01,4,Carrito Estadio,Bebida,20,3500,1800,70000,36000,34000,Dato de entrenamiento
+251,2026-04-02,1,Carrito Centro,Perro caliente clasico,19,8500,4200,161500,79800,81700,Dato de entrenamiento
+252,2026-04-02,1,Carrito Centro,Perro ranchero,20,14000,7600,280000,152000,128000,Dato de entrenamiento
+253,2026-04-02,2,Carrito Universidad,Bebida,25,3500,1800,87500,45000,42500,Dato de entrenamiento
+254,2026-04-02,2,Carrito Universidad,Bebida,15,3500,1800,52500,27000,25500,Dato de entrenamiento
+255,2026-04-02,3,Carrito Terminal,Perro especial,16,12000,6200,192000,99200,92800,Dato de entrenamiento
+256,2026-04-02,3,Carrito Terminal,Combo perro + bebida,23,15500,8300,356500,190900,165600,Dato de entrenamiento
+257,2026-04-02,4,Carrito Estadio,Combo perro + bebida,18,15500,8300,279000,149400,129600,Dato de entrenamiento
+258,2026-04-03,1,Carrito Centro,Combo perro + bebida,13,15500,8300,201500,107900,93600,Dato de entrenamiento
+259,2026-04-03,1,Carrito Centro,Combo perro + bebida,12,15500,8300,186000,99600,86400,Dato de entrenamiento
+260,2026-04-03,1,Carrito Centro,Bebida,25,3500,1800,87500,45000,42500,Dato de entrenamiento
+261,2026-04-03,2,Carrito Universidad,Combo perro + bebida,26,15500,8300,403000,215800,187200,Dato de entrenamiento
+262,2026-04-03,3,Carrito Terminal,Perro caliente clasico,10,8500,4200,85000,42000,43000,Dato de entrenamiento
+263,2026-04-03,3,Carrito Terminal,Combo perro + bebida,12,15500,8300,186000,99600,86400,Dato de entrenamiento
+264,2026-04-03,3,Carrito Terminal,Combo perro + bebida,13,15500,8300,201500,107900,93600,Dato de entrenamiento
+265,2026-04-03,4,Carrito Estadio,Perro ranchero,20,14000,7600,280000,152000,128000,Dato de entrenamiento
+266,2026-04-04,1,Carrito Centro,Perro especial,27,12000,6200,324000,167400,156600,Dato de entrenamiento
+267,2026-04-04,1,Carrito Centro,Perro ranchero,22,14000,7600,308000,167200,140800,Dato de entrenamiento
+268,2026-04-04,2,Carrito Universidad,Perro ranchero,26,14000,7600,364000,197600,166400,Dato de entrenamiento
+269,2026-04-04,2,Carrito Universidad,Perro ranchero,12,14000,7600,168000,91200,76800,Dato de entrenamiento
+270,2026-04-04,3,Carrito Terminal,Perro caliente clasico,31,8500,4200,263500,130200,133300,Dato de entrenamiento
+271,2026-04-04,3,Carrito Terminal,Perro caliente clasico,23,8500,4200,195500,96600,98900,Dato de entrenamiento
+272,2026-04-04,4,Carrito Estadio,Perro caliente clasico,35,8500,4200,297500,147000,150500,Dato de entrenamiento

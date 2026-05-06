@@ -1,0 +1,10 @@
+category,title,content
+Resumen financiero,Lectura general del negocio,"Usa ingresos, costo de ventas, gastos y utilidad neta para responder. Advierte si el margen baja de 20%."
+Carritos,Mejor carrito,El mejor carrito no es necesariamente el que mas vende; debe evaluarse por utilidad neta y margen.
+Ventas,Aumentar ventas,"Recomienda combos, bebidas y adicionales antes de sugerir descuentos fuertes."
+Gastos,Control de gastos,"Si los gastos suben, compara por categoria y carrito. Prioriza gas, transporte, empaques y comisiones."
+Inventario,Reabastecimiento,"Prioriza productos bajo minimo que afectan ventas directas: salchichas, pan, salsas, empaques, bebidas y gas."
+Facturas,Cartera pendiente,"Cuando haya facturas pendientes, informa el total por cobrar y recomienda seguimiento por fecha de vencimiento."
+Clientes,Clientes frecuentes,"Sugiere registrar telefono y correo para pedidos recurrentes, eventos y facturas."
+Predicciones,Datos minimos,El modelo predictivo necesita al menos 14 dias con ventas registradas para generar pronosticos confiables.
+

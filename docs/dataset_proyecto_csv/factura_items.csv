@@ -1,0 +1,6 @@
+id,invoice_id,description,qty,unit_price
+1,1,Perros calientes clasicos evento escolar,40,8500
+2,1,Bebidas,40,3500
+3,2,Combos perro + bebida,45,15500
+4,2,Adicionales,15,1500
+5,3,Perros especiales,30,12000

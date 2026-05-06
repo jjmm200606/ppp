@@ -1,0 +1,8 @@
+id,product,current_stock,min_stock,unit,estado
+1,Pan perro,180,120,unidades,OK
+2,Salchichas,95,140,unidades,Bajo
+3,Salsa tomate,12,10,litros,OK
+4,Salsa piña,5,8,litros,Bajo
+5,Bebidas,70,60,unidades,OK
+6,Empaques,90,150,unidades,Bajo
+7,Gas,1,2,cilindros,Bajo
