@@ -735,7 +735,12 @@ def _client():
     """Devuelve un cliente Groq o None si no hay key válida."""
     try:
         from groq import Groq  # noqa: PLC0415
-        key = st.secrets.get("GROQ_API_KEY", "") or os.getenv("GROQ_API_KEY", "")
+        key = (os.getenv("GROQ_API_KEY", "") or "").strip()
+        if not key:
+            try:
+                key = str(st.secrets.get("GROQ_API_KEY", "") or "").strip()
+            except Exception:
+                key = ""
         if not key or key == "gsk_...":
             return None
         return Groq(api_key=key)
