@@ -14,6 +14,7 @@ from lib.db import (
     seed_basic_accounts_for_user,
     seed_knowledge_base_table,
     is_admin,
+    get_db_debug_snapshot,
 )
 from lib.utils import money
 from lib.patterns.facade import AccountingFacade
@@ -31,6 +32,19 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 apply_theme()
+
+if st.secrets.get("SHOW_DB_DEBUG", False):
+    debug = get_db_debug_snapshot()
+    st.warning(
+        "DB debug activo. "
+        f"DATABASE_URL={debug['DATABASE_URL']} | "
+        f"MYSQL_URL={debug['MYSQL_URL']} | "
+        f"MARIADB_URL={debug['MARIADB_URL']} | "
+        f"MYSQL_PUBLIC_URL={debug['MYSQL_PUBLIC_URL']} | "
+        f"MARIADB_HOST={debug['MARIADB_HOST']} | "
+        f"MYSQLHOST={debug['MYSQLHOST']}"
+    )
+    st.code(debug["resolved_url"])
 
 # Observers globales (auditoría + limpieza de caché)
 add_global_observer(AuditObserver())

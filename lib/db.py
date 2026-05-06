@@ -42,6 +42,27 @@ def _build_db_url() -> str:
     db   = _clean_env(os.getenv("MARIADB_DB")) or _clean_env(os.getenv("MYSQLDATABASE")) or "perrospacho"
     return f"mysql+pymysql://{user}:{pwd}@{host}:{port}/{db}?charset=utf8mb4"
 
+
+def get_db_debug_snapshot() -> dict[str, str]:
+    url = _build_db_url()
+    safe_url = url
+    if "@" in safe_url and "://" in safe_url:
+        scheme, rest = safe_url.split("://", 1)
+        creds, tail = rest.split("@", 1)
+        if ":" in creds:
+            user, _pwd = creds.split(":", 1)
+            safe_url = f"{scheme}://{user}:***@{tail}"
+
+    return {
+        "DATABASE_URL": "set" if _clean_env(os.getenv("DATABASE_URL")) else "empty",
+        "MYSQL_URL": "set" if _clean_env(os.getenv("MYSQL_URL")) else "empty",
+        "MARIADB_URL": "set" if _clean_env(os.getenv("MARIADB_URL")) else "empty",
+        "MYSQL_PUBLIC_URL": "set" if _clean_env(os.getenv("MYSQL_PUBLIC_URL")) else "empty",
+        "MARIADB_HOST": _clean_env(os.getenv("MARIADB_HOST")) or "(empty)",
+        "MYSQLHOST": _clean_env(os.getenv("MYSQLHOST")) or "(empty)",
+        "resolved_url": safe_url,
+    }
+
 def get_engine() -> Engine:
     """
     Retorna la conexión global del motor SQLAlchemy (MariaDB).
