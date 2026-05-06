@@ -5,6 +5,7 @@
 
 from __future__ import annotations
 from pathlib import Path
+import os
 import streamlit as st
 
 from lib.db import (
@@ -33,7 +34,8 @@ st.set_page_config(
 )
 apply_theme()
 
-if st.secrets.get("SHOW_DB_DEBUG", False):
+show_db_debug = (os.getenv("SHOW_DB_DEBUG", "") or "").strip().lower() in {"1", "true", "yes", "on"}
+if show_db_debug:
     debug = get_db_debug_snapshot()
     st.warning(
         "DB debug activo. "
