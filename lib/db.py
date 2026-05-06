@@ -25,9 +25,10 @@ def get_engine() -> Engine:
     global _ENGINE
     if _ENGINE is None:
         direct_url = (
-            os.getenv("MARIADB_URL")
+            os.getenv("DATABASE_URL")
             or os.getenv("MYSQL_URL")
-            or os.getenv("DATABASE_URL")
+            or os.getenv("MARIADB_URL")
+            or os.getenv("MYSQL_PUBLIC_URL")
         )
         if direct_url:
             url = direct_url
