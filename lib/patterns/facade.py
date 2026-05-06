@@ -160,6 +160,7 @@ class AccountingFacade:
 
             invoice_old_to_new: Dict[str, int] = {}
             for row in dataset.get("facturas", []):
+                old_id = str(row.get("id") or "").strip()
                 client_name = str(row.get("client") or "").strip()
                 client_id = client_name_to_id.get(client_name)
                 if not client_id:
@@ -182,7 +183,6 @@ class AccountingFacade:
                         "ca": cart_id,
                     },
                 )
-                old_id = str(row.get("id") or "").strip()
                 counts["facturas"] += 1
 
             for row in dataset.get("factura_items", []):
