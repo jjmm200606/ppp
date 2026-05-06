@@ -17,30 +17,40 @@ except Exception:
 # --------------------------------------------------------------------
 _ENGINE: Engine | None = None
 
+
+def _clean_env(value: str | None) -> str:
+    return (value or "").strip().strip('"').strip("'")
+
+
+def _build_db_url() -> str:
+    direct_url = (
+        _clean_env(os.getenv("DATABASE_URL"))
+        or _clean_env(os.getenv("MYSQL_URL"))
+        or _clean_env(os.getenv("MARIADB_URL"))
+        or _clean_env(os.getenv("MYSQL_PUBLIC_URL"))
+    )
+    if direct_url:
+        url = direct_url
+        if url.startswith("mysql://"):
+            url = "mysql+pymysql://" + url[len("mysql://"):]
+        return url
+
+    host = _clean_env(os.getenv("MARIADB_HOST")) or _clean_env(os.getenv("MYSQLHOST")) or "127.0.0.1"
+    port = int(_clean_env(os.getenv("MARIADB_PORT")) or _clean_env(os.getenv("MYSQLPORT")) or "3307")
+    user = _clean_env(os.getenv("MARIADB_USER")) or _clean_env(os.getenv("MYSQLUSER")) or "root"
+    pwd  = _clean_env(os.getenv("MARIADB_PASSWORD")) or _clean_env(os.getenv("MYSQLPASSWORD")) or ""
+    db   = _clean_env(os.getenv("MARIADB_DB")) or _clean_env(os.getenv("MYSQLDATABASE")) or "perrospacho"
+    return f"mysql+pymysql://{user}:{pwd}@{host}:{port}/{db}?charset=utf8mb4"
+
 def get_engine() -> Engine:
     """
     Retorna la conexión global del motor SQLAlchemy (MariaDB).
     Lee las variables de entorno: MARIADB_HOST, MARIADB_USER, MARIADB_PASSWORD, MARIADB_DB.
     """
     global _ENGINE
-    if _ENGINE is None:
-        direct_url = (
-            os.getenv("DATABASE_URL")
-            or os.getenv("MYSQL_URL")
-            or os.getenv("MARIADB_URL")
-            or os.getenv("MYSQL_PUBLIC_URL")
-        )
-        if direct_url:
-            url = direct_url
-            if url.startswith("mysql://"):
-                url = "mysql+pymysql://" + url[len("mysql://"):]
-        else:
-            host = os.getenv("MARIADB_HOST") or os.getenv("MYSQLHOST") or "127.0.0.1"
-            port = int(os.getenv("MARIADB_PORT") or os.getenv("MYSQLPORT") or "3307")
-            user = os.getenv("MARIADB_USER") or os.getenv("MYSQLUSER") or "root"
-            pwd  = os.getenv("MARIADB_PASSWORD") or os.getenv("MYSQLPASSWORD") or ""
-            db   = os.getenv("MARIADB_DB") or os.getenv("MYSQLDATABASE") or "perrospacho"
-            url = f"mysql+pymysql://{user}:{pwd}@{host}:{port}/{db}?charset=utf8mb4"
+    url = _build_db_url()
+    current_url = str(_ENGINE.url) if _ENGINE is not None else None
+    if _ENGINE is None or current_url != url:
         _ENGINE = create_engine(url, pool_pre_ping=True, future=True)
     return _ENGINE
 
